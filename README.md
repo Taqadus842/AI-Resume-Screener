@@ -35,8 +35,6 @@ An AI-powered full-stack application that analyzes resumes against job descripti
 - Skill matching pipeline
 - AI-driven feedback generation
 
----
-
 
 ---
 
