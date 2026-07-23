@@ -1,70 +1,63 @@
-# AI Resume Screener — Full Stack Project
+# AI Resume Screener & Feedback System
 
-A complete, working full-stack application:
-- **Frontend**: Next.js (App Router) + Tailwind CSS
-- **Backend**: FastAPI (Python) — resume parsing + AI-style analysis, no external API key required
+An AI-powered full-stack application that analyzes resumes against job descriptions, provides a compatibility score, identifies missing skills, and generates improvement suggestions to help candidates optimize their resumes.
 
-```
-project/
-  frontend/     # Next.js app (upload UI, results page)
-  backend/      # FastAPI app (parsing + analysis engine)
-```
+## 🚀 Features
 
-## Quick start
+- Upload resume in **PDF/DOCX** format
+- Extract resume text automatically
+- Compare resume with job description
+- Generate **resume-job match score (0-100%)**
+- Identify missing skills and keywords
+- Provide AI-based resume improvement suggestions
+- Clean and responsive web interface
+- Fast API-based backend architecture
 
-### 1. Start the backend (port 8000)
+---
 
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
-```
+## 🛠️ Tech Stack
 
-### 2. Start the frontend (port 3000)
+### Frontend
+- Next.js (App Router)
+- React.js
+- Tailwind CSS
 
-In a second terminal:
+### Backend
+- FastAPI
+- Python
+- PDF/DOCX text extraction
+- REST APIs
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+### AI / NLP Pipeline
+- NLP-based resume processing
+- Text similarity analysis
+- Keyword extraction
+- Skill matching pipeline
+- AI-driven feedback generation
 
-### 3. Use it
+---
 
-Open [http://localhost:3000](http://localhost:3000), click **Analyze Resume**,
-upload a PDF or DOCX resume, paste a job description, and submit. You'll be
-taken to `/results` with your match score, missing keywords, and suggestions.
 
-## How it works
+---
 
-1. The frontend uploads the resume file to `POST /api/resume/upload`.
-   The backend extracts plain text from the PDF/DOCX using `pdfplumber` /
-   `python-docx`.
-2. The frontend sends the extracted text + job description to
-   `POST /api/analyze`.
-3. The backend:
-   - Computes a **TF-IDF cosine similarity** score between the resume and
-     job description (topical overlap).
-   - Extracts known skills/technologies from both texts using a curated
-     skills database and computes a **keyword overlap score**.
-   - Blends both into a single 0–100 **match score**.
-   - Returns the list of important keywords present in the job description
-     but missing from the resume.
-   - Generates human-readable **suggestions** based on the score, missing
-     keywords, and general resume-quality heuristics (length, quantifiable
-     achievements, etc).
-4. Results are stored in `localStorage` and rendered on `/results`.
+# 👥 Team Contributions
 
-## Troubleshooting
+## Ume Taqadus — Backend Developer & Team Lead
+- Designed and developed the FastAPI backend architecture
+- Implemented API endpoints for resume upload and analysis
+- Integrated frontend-backend communication
+- Managed backend workflow and project integration
 
-- **"Failed to fetch" / network error on upload**: make sure the backend is
-  running on `http://127.0.0.1:8000` (check `frontend/services/api.js` if you
-  change the port).
-- **CORS error in browser console**: the backend only allows
-  `http://localhost:3000` and `http://127.0.0.1:3000` by default — update
-  `backend/app/main.py`'s `CORSMiddleware` origins if you deploy elsewhere.
-- **"No readable text found in the PDF"**: the uploaded PDF is likely a
-  scanned image without a text layer. Use a text-based PDF or DOCX instead.
+## Laiba Anees — Frontend Developer
+- Developed the Next.js frontend interface
+- Designed responsive UI components using Tailwind CSS
+- Implemented resume upload workflow and results visualization
+- Improved overall user experience
+
+## Sabeen Irfan — AI/NLP Engineer
+- Developed NLP processing pipeline
+- Worked on resume text preprocessing
+- Implemented skill extraction and keyword matching logic
+- Improved AI-based resume analysis workflow
+
+---
